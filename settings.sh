@@ -84,9 +84,6 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
-# Set 1 second delay when showing and hiding the Dock (to discourage using the Dock)
-defaults write com.apple.dock autohide-delay -float 1 
-
 # Remove the animation when hiding/showing the Dock
 defaults write com.apple.dock autohide-time-modifier -float 0
 
@@ -104,7 +101,9 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 
 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew analytics off
+
 brew install wget
 brew install httpie
 brew install htop
@@ -118,6 +117,12 @@ brew install tldr
 
 echo "Installing & configuring Fish"
 brew install fish
+brew install archey
+
+echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+chsh -s /usr/local/bin/fish
+
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
 fisher install transfer
 
+echo 'set fish_greeting ""' >> ~/.config/fish/config.fish

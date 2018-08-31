@@ -125,4 +125,8 @@ chsh -s /usr/local/bin/fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
 fisher install transfer
 
+wget -O ~/.config/fish/functions/fish_prompt.fish URL
+
 echo 'set fish_greeting ""' >> ~/.config/fish/config.fish
+echo "archey --offline" >> ~/.config/fish/config.fish
+

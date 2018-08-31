@@ -110,16 +110,25 @@ brew analytics off
 brew install wget
 brew install httpie
 brew install htop
-brew install virtualbox
-brew install vagrant
 brew install bat
 brew install prettyping
 brew install jq
 brew install tldr
-brew cask install spectacle
 brew install fish
 brew install archey
+
+brew install virtualbox
+brew install vagrant
+brew cask install spectacle
 brew cask install sublime-text
+brew cask install appcleaner
+brew cask install viscosity
+brew cask install paw
+brew cask install postico
+brew cask install keka
+brew cask install vmware-fusion
+brew cask install sequel-pro
+brew cask install eloston-chromium
 echo | brew cask install iterm2
 
 
@@ -129,6 +138,7 @@ defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 
 # iTerm2/Fish/
+
 
 echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish

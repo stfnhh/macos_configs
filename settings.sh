@@ -117,11 +117,7 @@ echo | brew cask install iterm2
 
 
 wget -O ~/Library/Preferences/com.googlecode.iterm2.plist https://raw.githubusercontent.com/stfnhh/macos_configs/master/com.googlecode.iterm2.plist
-
-
-# Specify the preferences directory
-defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm2"
-# Tell iTerm2 to use the custom preferences in the directory
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/Library/Preferences/"
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 

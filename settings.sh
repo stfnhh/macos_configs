@@ -116,6 +116,7 @@ brew install jq
 brew install tldr
 brew install fish
 brew install archey
+brew install mas
 
 brew install virtualbox
 brew install vagrant
@@ -129,6 +130,8 @@ brew cask install keka
 brew cask install vmware-fusion
 brew cask install sequel-pro
 brew cask install eloston-chromium
+brew cask install transmit
+
 echo | brew cask install iterm2
 
 

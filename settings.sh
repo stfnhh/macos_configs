@@ -113,6 +113,9 @@ brew install bat
 brew install prettyping
 brew install jq
 brew install tldr
+brew cask install spectacle
+brew install fish
+brew install archey
 echo | brew cask install iterm2
 
 
@@ -121,9 +124,7 @@ defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/Library/
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 
-echo "Installing & configuring Fish"
-brew install fish
-brew install archey
+echo "configuring Fish"
 
 echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
@@ -134,9 +135,8 @@ fisher install transfer
 wget -O /Library/Fonts/droid_sans_mono_for_powerline.ttf https://raw.githubusercontent.com/stfnhh/macos_configs/master/droid_sans_mono_for_powerline.ttf
 fisher install omf/theme-bobthefish
 
-rm ~/.config/fish/functions/fish_right_prompt.fish
 wget -O ~/.config/fish/functions/fish_prompt.fish https://raw.githubusercontent.com/stfnhh/macos_configs/master/fish_prompt.fish
 
-echo 'set fish_greeting ""' >> ~/.config/fish/config.fish
-echo "archey --offline" >> ~/.config/fish/config.fish
+echo 'function fish_right_prompt; end' >> ~/.config/fish/config.fish
+echo "function fish_greeting\n\tarchey --offline\nend" >> ~/.config/fish/config.fish
 

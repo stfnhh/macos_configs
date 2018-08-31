@@ -125,7 +125,10 @@ chsh -s /usr/local/bin/fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
 fisher install transfer
 
-wget -O ~/.config/fish/functions/fish_prompt.fish URL
+wget -O /Library/Fonts/droid_sans_mono_for_powerline.ttf https://raw.githubusercontent.com/stfnhh/macos_configs/master/droid_sans_mono_for_powerline.ttf
+fisher install omf/theme-bobthefish
+
+wget -O ~/.config/fish/functions/fish_prompt.fish https://raw.githubusercontent.com/stfnhh/macos_configs/master/fish_prompt.fish
 
 echo 'set fish_greeting ""' >> ~/.config/fish/config.fish
 echo "archey --offline" >> ~/.config/fish/config.fish

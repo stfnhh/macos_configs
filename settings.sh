@@ -113,6 +113,16 @@ brew install bat
 brew install prettyping
 brew install jq
 brew install tldr
+echo | brew cask install iterm2
+
+
+wget -O ~/Library/Preferences/com.googlecode.iterm2.plist https://raw.githubusercontent.com/stfnhh/macos_configs/master/com.googlecode.iterm2.plist
+
+
+# Specify the preferences directory
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm2"
+# Tell iTerm2 to use the custom preferences in the directory
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 
 echo "Installing & configuring Fish"
@@ -128,6 +138,7 @@ fisher install transfer
 wget -O /Library/Fonts/droid_sans_mono_for_powerline.ttf https://raw.githubusercontent.com/stfnhh/macos_configs/master/droid_sans_mono_for_powerline.ttf
 fisher install omf/theme-bobthefish
 
+rm ~/.config/fish/functions/fish_right_prompt.fish
 wget -O ~/.config/fish/functions/fish_prompt.fish https://raw.githubusercontent.com/stfnhh/macos_configs/master/fish_prompt.fish
 
 echo 'set fish_greeting ""' >> ~/.config/fish/config.fish

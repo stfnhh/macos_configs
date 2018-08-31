@@ -128,7 +128,7 @@ defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/Library/
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 
-echo "Configuring Fish"
+# iTerm2/Fish/
 
 echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
@@ -143,4 +143,14 @@ wget -O ~/.config/fish/functions/fish_prompt.fish https://raw.githubusercontent.
 
 echo 'function fish_right_prompt; end' >> ~/.config/fish/config.fish
 printf "function fish_greeting\n\tarchey --offline\nend" >> ~/.config/fish/config.fish
+
+# Vim
+mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+echo """
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+let g:airline_powerline_fonts = 1
+""" > ~/.vimrc
 

@@ -103,46 +103,56 @@ for app in "Dock" "Finder"; do
 done
 
 
-
+# Install homebrew and apps
 echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew analytics off
 
-brew install wget
-brew install httpie
-brew install htop
-brew install bat
-brew install prettyping
-brew install jq
-brew install tldr
-brew install fish
-brew install archey
-brew install mas
+declare -a apps=(
+  "wget:false"
+  "httpie:false"
+  "htop:false"
+  "prettyping:false"
+  "jq:false"
+  "tldr:false"
+  "fish:false"
+  "archey:false"
+  "virtualbox:false"
+  "vagrant:false"
+  "mas:false"
+  "spectacle:true"
+  "sublime-text:true"
+  "appcleaner:true"
+  "viscosity:true"
+  "paw:true"
+  "postico:true"
+  "keka:true"
+  "vmware-fusion:true"
+  "sequel-pro:true"
+  "eloston-chromium:true"
+  "transmit:true"
+  "iterm2:true"
+)
 
-brew install virtualbox
-brew install vagrant
-brew cask install spectacle
-brew cask install sublime-text
-brew cask install appcleaner
-brew cask install viscosity
-brew cask install paw
-brew cask install postico
-brew cask install keka
-brew cask install vmware-fusion
-brew cask install sequel-pro
-brew cask install eloston-chromium
-brew cask install transmit
-
-echo | brew cask install iterm2
+for app in "${apps[@]}"; do
+  if [ ${app#*:} == true ]
+  then
+    brew cask install $app
+  else
+    brew install $app
+  fi
+done
 
 
+mas install 409203825 # Numbers
+
+
+#iTerm2
 wget -O ~/Library/Preferences/com.googlecode.iterm2.plist https://raw.githubusercontent.com/stfnhh/macos_configs/master/com.googlecode.iterm2.plist
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/Library/Preferences/"
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 
 
-# iTerm2/Fish/
-
-
+# Configure Fish
 echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish
 
@@ -156,6 +166,7 @@ wget -O ~/.config/fish/functions/fish_prompt.fish https://raw.githubusercontent.
 
 echo 'function fish_right_prompt; end' >> ~/.config/fish/config.fish
 printf "function fish_greeting\n\tarchey --offline\nend" >> ~/.config/fish/config.fish
+
 
 # Vim
 mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim

@@ -106,47 +106,29 @@ done
 # Install homebrew and apps
 echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew analytics off
+brew install jq mas wget #required for script
 
-declare -a apps=(
-  "wget:false"
-  "httpie:false"
-  "htop:false"
-  "prettyping:false"
-  "jq:false"
-  "tldr:false"
-  "fish:false"
-  "archey:false"
-  "virtualbox:false"
-  "vagrant:false"
-  "mas:false"
-  "spectacle:true"
-  "sublime-text:true"
-  "appcleaner:true"
-  "viscosity:true"
-  "paw:true"
-  "postico:true"
-  "keka:true"
-  "vmware-fusion:true"
-  "sequel-pro:true"
-  "eloston-chromium:true"
-  "transmit:true"
-  "iterm2:true"
-  "arq:true"
-  "viscosity:true"
-  "little-snitch:true"
-)
+for row in $(cat apps.json | jq -r '.[] | @base64'); do
+  _jq() {
+    echo ${row} | base64 --decode | jq -r ${1}
+  }
 
-for app in "${apps[@]}"; do
-  if [ ${app#*:} == true ]
+  name=$(_jq '.name')
+  id=$(_jq '.id')
+
+  if [ $id != null ]
   then
-    brew cask install $app
+    mas install $id
+    continue
+  fi
+
+  if [ $(_jq '.cask') != null ]
+  then
+    brew cask install $name
   else
-    brew install $app
+    brew install $name
   fi
 done
-
-
-mas install 409203825 # Numbers
 
 
 #Sublime

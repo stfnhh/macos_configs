@@ -1,0 +1,93 @@
+[
+  {
+    "name": "numbers",
+    "id": 409203825
+  },
+  {
+    "name": "wget",
+  },
+  {
+    "name": "httpie",
+  },
+  {
+    "name": "htop",
+  },
+  {
+    "name": "prettyping",
+  },
+  {
+    "name": "tldr",
+  },
+  {
+    "name": "fish",
+  },
+  {
+    "name": "archey",
+  },
+  {
+    "name": "virtualbox",
+  },
+  {
+    "name": "vagrant",
+  },
+  {
+    "name": "spectacle",
+    "cask": true
+  },
+  {
+    "name": "sublime-text",
+    "cask": true
+  },
+  {
+    "name": "appcleaner",
+    "cask": true
+  },
+  {
+    "name": "viscosity",
+    "cask": true
+  },
+  {
+    "name": "paw",
+    "cask": true
+  },
+  {
+    "name": "postico",
+    "cask": true
+  },
+  {
+    "name": "keka",
+    "cask": true
+  },
+  {
+    "name": "vmware-fusion",
+    "cask": true
+  },
+  {
+    "name": "sequel-pro",
+    "cask": true
+  },
+  {
+    "name": "eloston-chromium",
+    "cask": true
+  },
+  {
+    "name": "transmit",
+    "cask": true
+  },
+  {
+    "name": "iterm2",
+    "cask": true
+  },
+  {
+    "name": "arq",
+    "cask": true
+  },
+  {
+    "name": "viscosity",
+    "cask": true
+  },
+  {
+    "name": "little-snitch",
+    "cask": true
+  }
+]

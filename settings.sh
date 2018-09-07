@@ -131,6 +131,9 @@ declare -a apps=(
   "eloston-chromium:true"
   "transmit:true"
   "iterm2:true"
+  "arq:true"
+  "viscosity:true"
+  "little-snitch:true"
 )
 
 for app in "${apps[@]}"; do
@@ -145,6 +148,10 @@ done
 
 mas install 409203825 # Numbers
 
+
+#Sublime
+
+ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime
 
 #iTerm2
 wget -O ~/Library/Preferences/com.googlecode.iterm2.plist https://raw.githubusercontent.com/stfnhh/macos_configs/master/com.googlecode.iterm2.plist
